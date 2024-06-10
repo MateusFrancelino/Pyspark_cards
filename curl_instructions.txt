@@ -1,0 +1,36 @@
+Instruções para criar o job 
+1 -  no menu do workspace clicar em jobs
+2 - clicar em create job
+3 - inserir o nome do job e selecionar o notebook, neste caso sera o TestePyspark.ipynb
+4 - selecionar um cluster para a execução do notebook, obs(ceritificar que o cluster tem permissão para acessar os arquivos que serão utilizados)
+5 - caso necessario configurar parametros adicionais 
+
+6 - se preciso configurar trigger neste momento para executar o job a em algum horario
+7 - tambem é possivel definir retries ou o tempo de timeout neste momento
+8 - clicar em salvar
+
+
+para a execução do job
+1 - caso não ter um token ir em user settings e gerar um token de api
+2 - acessar a pagina de jobs para pegar o id do job no caso vou utilizar de exempo o id 1234
+3 - com isso temos o necessario para criar o curl 
+
+
+4 - substituir o xxx... pelo token adquirido
+
+curl -X POST https://adb-12345678.0.azuredatabricks.net/api/2.1/jobs/run-now \
+     -H "Authorization: Bearer XXXXXXXXXXXXXXXXXXXXXXXXXX" \
+     -d '{
+           "job_id": 1234,
+           "notebook_params": {
+             "connection_url": "jdbc:oracle:thin:@//localhost:1521/orcl",
+             "user": "sys as SYSDBA",
+             "password": "root",
+             "directory": "Volumes/dev/tiintegracao/team/cartoes/cext",
+             "bronze_directory": "Volumes/bronze/",
+             "silver_directory": "Volumes/silver/",
+             "start_pattern": "CEXT_756",
+             "end_extension": ".CCB",
+             "notebook_name": "TestePyspark.ipynb"
+           }
+         }'

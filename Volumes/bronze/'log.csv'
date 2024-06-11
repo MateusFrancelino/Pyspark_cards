@@ -499,3 +499,9 @@ Caused by: java.sql.BatchUpdateException: ORA-00001: restrição exclusiva (CART
 "
 success,2024-06-10 20:36:12,TestePyspark.ipynb,notebook ran successfully
 success,2024-06-10 20:41:03,TestePyspark.ipynb,notebook ran successfully
+success,2024-06-10 20:59:51,TestePyspark.ipynb,notebook ran successfully
+error,2024-06-10 21:03:40,TestePyspark.ipynb,'Column' object is not callable
+error,2024-06-10 21:03:50,TestePyspark.ipynb,'Column' object is not callable
+error,2024-06-10 21:04:02,TestePyspark.ipynb,'Column' object is not callable
+error,2024-06-10 21:04:40,TestePyspark.ipynb,'Column' object is not callable
+error,2024-06-10 21:04:49,TestePyspark.ipynb,'Column' object is not callable
